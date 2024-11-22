@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7ed61552b3b243f185c28b6e5ac97b64" Name="Diagram1">
+      <Diagram DiagramId="a8662c99228345239e44e6427521738b" Name="Diagram1">
         <EntityTypeShape EntityType="ContractMonthlyClaimSystemDBModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

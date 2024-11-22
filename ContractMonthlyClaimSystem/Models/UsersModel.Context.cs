@@ -26,5 +26,7 @@ namespace ContractMonthlyClaimSystem.Models
         }
     
         public virtual DbSet<User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<ContractMonthlyClaimSystem.Models.Claim> Claims { get; set; }
     }
 }
