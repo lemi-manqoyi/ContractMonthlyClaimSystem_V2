@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ContractMonthlyClaimSystem.Models.Claim>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Create New Claim";
 }
 
-<h2>Index</h2>
+<h2>Lecturer History</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -55,7 +55,6 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClaimID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ClaimID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClaimID })
         </td>
     </tr>
 }

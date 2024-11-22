@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -12,7 +14,7 @@ namespace ContractMonthlyClaimSystem.Controllers
 {
     public class ClaimsController : Controller
     {
-        private ContractMonthlyClaimSystemDBEntities db = new ContractMonthlyClaimSystemDBEntities();
+        private ContractMonthlyClaimSystemDBEntities1 db = new ContractMonthlyClaimSystemDBEntities1();
 
         // GET: Claims
         public ActionResult Index()
@@ -34,6 +36,15 @@ namespace ContractMonthlyClaimSystem.Controllers
             }
             return View(claim);
         }
+
+
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
+
+
 
         // GET: Claims/Create
         public ActionResult Create()
@@ -71,8 +82,12 @@ namespace ContractMonthlyClaimSystem.Controllers
             {
                 return HttpNotFound();
             }
-            return View(claim);
+            
+             var model = new Claim();
+             model.Status = "Pending";
+             return View(claim );
         }
+
 
         // POST: Claims/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -83,12 +98,34 @@ namespace ContractMonthlyClaimSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(claim).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    //db.Entry(claim).Property(e => e.RowVersion).OriginalValue = Request.Form["RowVersion"];
+                    db.Entry(claim).State = EntityState.Modified;
+
+                    int rowsAffected = db.SaveChanges();
+
+                    if (rowsAffected == 0)
+                    {
+                        ModelState.AddModelError("", "No changes were detected.");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    ModelState.AddModelError("", "The record you attempted to edit was modified by another user after you got the original value.");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "An unexpected error occurred: " + ex.Message);
+                }
             }
             return View(claim);
         }
+
 
         // GET: Claims/Delete/5
         public ActionResult Delete(Guid? id)

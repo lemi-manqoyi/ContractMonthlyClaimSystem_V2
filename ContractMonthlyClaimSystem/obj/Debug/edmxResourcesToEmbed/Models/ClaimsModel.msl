@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ContractMonthlyClaimSystemDBModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="ContractMonthlyClaimSystemDBModel1StoreContainer" CdmEntityContainer="ContractMonthlyClaimSystemDBEntities1">
     <EntitySetMapping Name="Claims">
-      <EntityTypeMapping TypeName="ContractMonthlyClaimSystemDBModel.Claim">
+      <EntityTypeMapping TypeName="ContractMonthlyClaimSystemDBModel1.Claim">
         <MappingFragment StoreEntitySet="Claims">
+          <ScalarProperty Name="AdditionalNotes" ColumnName="AdditionalNotes" />
           <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
           <ScalarProperty Name="SubmittedDate" ColumnName="SubmittedDate" />
           <ScalarProperty Name="HoursWorked" ColumnName="HoursWorked" />

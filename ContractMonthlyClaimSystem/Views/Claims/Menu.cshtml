@@ -1,0 +1,21 @@
+﻿@model ContractMonthlyClaimSystem.Models.Claim
+
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Claims Menu</h2>
+<body>
+    <div class="">
+        <h4>Select An Option</h4>
+    </div>
+
+    <div id="buttonLayout" class="d-flex justify-content-lg-center">
+
+        @Html.ActionLink("Submit New Claim", "Create", "Claims", new { area = "" }, new { @class = "btnRegister" })
+
+        @Html.ActionLink("View Lecturer History", "Index", "Claims", new { area = "" }, new { @class = "btnRegister" })
+    </div>
+
+</body>
+

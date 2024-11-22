@@ -53,7 +53,7 @@ namespace ContractMonthlyClaimSystem.Controllers
                 user.UserID = Guid.NewGuid();
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Claims");
             }
 
             return View(user);

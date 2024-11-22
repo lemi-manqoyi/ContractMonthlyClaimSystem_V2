@@ -13,10 +13,10 @@ namespace ContractMonthlyClaimSystem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class ContractMonthlyClaimSystemDBEntities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public ContractMonthlyClaimSystemDBEntities1()
+            : base("name=ContractMonthlyClaimSystemDBEntities1")
         {
         }
     

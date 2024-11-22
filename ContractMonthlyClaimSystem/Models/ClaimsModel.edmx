@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ContractMonthlyClaimSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ContractMonthlyClaimSystemDBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Claims">
           <Key>
             <PropertyRef Name="ClaimID" />
@@ -16,15 +16,15 @@
           <Property Name="ClaimDocumentPath" Type="varchar" MaxLength="255" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AdditionalNotes" Type="varchar" MaxLength="150" />
         </EntityType>
-        <EntityContainer Name="ContractMonthlyClaimSystemDBModelStoreContainer">
+        <EntityContainer Name="ContractMonthlyClaimSystemDBModel1StoreContainer">
           <EntitySet Name="Claims" EntityType="Self.Claims" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ContractMonthlyClaimSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ContractMonthlyClaimSystemDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Claim">
           <Key>
             <PropertyRef Name="ClaimID" />
@@ -36,8 +36,9 @@
           <Property Name="ClaimDocumentPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="AdditionalNotes" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ContractMonthlyClaimSystemDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Claims" EntityType="Self.Claim" />
         </EntityContainer>
       </Schema>
@@ -45,10 +46,11 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ContractMonthlyClaimSystemDBModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ContractMonthlyClaimSystemDBModel1StoreContainer" CdmEntityContainer="ContractMonthlyClaimSystemDBEntities1">
           <EntitySetMapping Name="Claims">
-            <EntityTypeMapping TypeName="ContractMonthlyClaimSystemDBModel.Claim">
+            <EntityTypeMapping TypeName="ContractMonthlyClaimSystemDBModel1.Claim">
               <MappingFragment StoreEntitySet="Claims">
+                <ScalarProperty Name="AdditionalNotes" ColumnName="AdditionalNotes" />
                 <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
                 <ScalarProperty Name="SubmittedDate" ColumnName="SubmittedDate" />
                 <ScalarProperty Name="HoursWorked" ColumnName="HoursWorked" />

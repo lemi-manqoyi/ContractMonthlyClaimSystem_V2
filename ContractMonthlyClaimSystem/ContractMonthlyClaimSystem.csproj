@@ -190,6 +190,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\bgMain.jpg" />
+    <Content Include="Content\images\bgMain2.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -290,6 +292,7 @@
     <Content Include="Views\Claims\Details.cshtml" />
     <Content Include="Views\Claims\Edit.cshtml" />
     <Content Include="Views\Claims\Index.cshtml" />
+    <Content Include="Views\Claims\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,14 @@
     padding-right: 15px;
 }
 
+body {
+    background-image: url(images/bgMain2.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -17,4 +25,53 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.btnLogin {
+    padding: 15px 50px;
+    background-color: green;
+    color: aliceblue;
+    border: solid 2px;
+    border-radius: 15px;
+    border-color: greenyellow;
+    margin-right: 55px;
+}
+.btnRegister{
+    padding: 15px 50px;
+    background-color:goldenrod;
+    color:black;
+    border-radius:15px;
+    border: solid 2px;
+    border-color: black;
+}
+.btnStyle{
+    padding: 15px 50px;
+    background-color:green;
+    color:aliceblue;
+    border: solid 2px;
+    border-color: greenyellow;
+}
+
+.inpFldW{
+    width:350px;
+    height: 40px;
+    border: solid 3px;
+    padding: 5px;
+    color:white;
+    border-radius:10px;
+    border-color:antiquewhite;
+}
+
+.txtWhite{
+    color:white;
+}
+
+.inpFldB{
+    width:350px;
+    height: 40px;
+    border: solid 3px;
+    padding: 5px;
+    border-radius:10px;
+    color:black;
+    border-color:black;
 }

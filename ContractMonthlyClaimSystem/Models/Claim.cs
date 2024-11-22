@@ -21,5 +21,6 @@ namespace ContractMonthlyClaimSystem.Models
         public string ClaimDocumentPath { get; set; }
         public string Status { get; set; }
         public System.Guid UserID { get; set; }
+        public string AdditionalNotes { get; set; }
     }
 }
