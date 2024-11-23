@@ -44,6 +44,23 @@ textarea {
     border: solid 2px;
     border-color: black;
 }
+.btnNewClaim {
+    padding: 15px 50px;
+    background-color: goldenrod;
+    color: black;
+    border-radius: 15px;
+    border: solid 2px;
+    border-color: black;
+    margin-right: 55px;
+}
+.btnLecturerHistory{
+    padding: 15px 50px;
+    background-color:goldenrod;
+    color:black;
+    border-radius:15px;
+    border: solid 2px;
+    border-color: black;
+}
 .btnStyle{
     padding: 15px 50px;
     background-color:green;
@@ -55,11 +72,11 @@ textarea {
 .inpFldW{
     width:350px;
     height: 40px;
-    border: solid 3px;
+    border: solid 2px;
     padding: 5px;
     color:white;
     border-radius:10px;
-    border-color:antiquewhite;
+    border-color:black;
 }
 
 .txtWhite{

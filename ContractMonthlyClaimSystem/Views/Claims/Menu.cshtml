@@ -3,18 +3,23 @@
 @{
     ViewBag.Title = "Menu";
 }
+<br />
+<br />
+<br />
+<br />
 
-<h2>Claims Menu</h2>
 <body>
-    <div class="">
+    <div class="d-flex justify-content-center">
+        <h2>Claims Menu</h2>
         <h4>Select An Option</h4>
     </div>
+    <br />
 
     <div id="buttonLayout" class="d-flex justify-content-lg-center">
 
-        @Html.ActionLink("Submit New Claim", "Create", "Claims", new { area = "" }, new { @class = "btnRegister" })
+        @Html.ActionLink("Submit New Claim", "Create", "Claims", new { area = "" }, new { @class = "btnNewClaim" })
 
-        @Html.ActionLink("View Lecturer History", "Index", "Claims", new { area = "" }, new { @class = "btnRegister" })
+        @Html.ActionLink("View Lecturer History", "Index", "Claims", new { area = "" }, new { @class = "btnLecturerHistory" })
     </div>
 
 </body>

@@ -1,15 +1,58 @@
-﻿@model IEnumerable<ContractMonthlyClaimSystem.Models.User>
+﻿@model List<ContractMonthlyClaimSystem.Models.User>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
 
-<main>
-    <h1>Create New User</h1>
-</main>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card shadow-sm" style="width: 100%; max-width: 400px;">
+        <div class="card-body">
+            <h4 class="card-title text-center text-primary mb-4">Login</h4>
 
+            @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form-signin" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Email, new { @class = "inpFldW form-control", placeholder = "Email", required = "required" })
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+                    @Html.PasswordFor(model => model.Password, new { @class = " inpFldW form-control", placeholder = "Password", required = "required" })
+                </div>
+
+                <!-- Error Message (will display validation errors) -->
+                if (ViewData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @ViewData["ErrorMessage"]
+                    </div>
+                }
+
+                <!-- Submit Button -->
+                <div class="form-group text-center">
+                    <button type="submit" class="btnRegister btn-primary btn-block">Log In</button>
+                </div>
+
+                <div class="text-center">
+                    <a href="#">Forgot your password?</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Include Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<!-- Include Bootstrap JS (optional, for interactive components like dropdowns) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

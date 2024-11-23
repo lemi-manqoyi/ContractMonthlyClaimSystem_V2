@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using ContractMonthlyClaimSystem.Models;
 
 namespace ContractMonthlyClaimSystem.Controllers
@@ -123,6 +124,50 @@ namespace ContractMonthlyClaimSystem.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        // POST: Verify Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(User model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.SingleOrDefault(u => u.Email == model.Email);
+
+                // Check if the user exists and password matches
+                if (user != null && user.Password == model.Password)
+                {
+                    // For security reasons, you should never store plain text passwords in production.
+                    // Instead, use hashed passwords and ASP.NET Identity or another secure method.
+
+                    // You can create a session or set an authentication cookie here
+                    FormsAuthentication.SetAuthCookie(user.Email, false);
+
+                    // Redirect to the home page or another protected area
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    // If the credentials are incorrect, display an error message
+                    ViewData["ErrorMessage"] = "Invalid email or password.";
+                }
+            }
+
+            // Return the view with validation error if the model is not valid
+            return View(model);
+        }
+
+        // Optional: Log out action
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
         }
     }
 }
